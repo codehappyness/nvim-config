@@ -27,6 +27,7 @@ return {
     ensure_installed = {
       "bash",
       "php",
+      "blade",
       "c",
       "diff",
       "html",
@@ -39,6 +40,7 @@ return {
       "luap",
       "markdown",
       "markdown_inline",
+      "rust",
       "printf",
       "python",
       "query",
@@ -107,9 +109,9 @@ return {
     if type(opts.ensure_installed) == "table" then
       vim.list_extend(opts.ensure_installed, { "markdown", "markdown_inline" })
     end
-    -- if type(opts.ensure_installed) == "table" then
-    --   opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
-    -- end
+    if type(opts.ensure_installed) == "table" then
+      opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
+    end
     require("nvim-treesitter.configs").setup(opts)
   end,
 }
