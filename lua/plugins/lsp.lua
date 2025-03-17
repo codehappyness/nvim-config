@@ -113,18 +113,18 @@ return {
           },
           on_attach = function(client, bufnr)
             -- Optionally disable certain capabilities
-            client.server_capabilities.documentSymbolProvider = false -- Disable if you want to use another LSP for symbols
-          end,
-        },
-        phpactor = {
-          filetypes = { "php" },
-          root_patterns = { ".git", "pubspec.yaml" }, -- patterns to find the root of your flutter project
-          on_attach = function(client, bufnr)
-            -- Optionally disable certain capabilities
             -- client.server_capabilities.documentSymbolProvider = false -- Disable if you want to use another LSP for symbols
-            -- vim.diagnostic.disable(bufnr);
           end,
         },
+        --phpactor = {
+        --  filetypes = { "php" },
+        --  root_patterns = { ".git", "pubspec.yaml" }, -- patterns to find the root of your flutter project
+        --  on_attach = function(client, bufnr)
+        --    -- Optionally disable certain capabilities
+        --    -- client.server_capabilities.documentSymbolProvider = false -- Disable if you want to use another LSP for symbols
+        --    -- vim.diagnostic.disable(bufnr);
+        --  end,
+        --},
         --vtsls = {},
         omnisharp = {},
         rust_analyzer = {
@@ -215,9 +215,9 @@ return {
       if opts.inlay_hints.enabled then
         LazyVim.lsp.on_supports_method("textDocument/inlayHint", function(client, buffer)
           if
-            vim.api.nvim_buf_is_valid(buffer)
-            and vim.bo[buffer].buftype == ""
-            and not vim.tbl_contains(opts.inlay_hints.exclude, vim.bo[buffer].filetype)
+              vim.api.nvim_buf_is_valid(buffer)
+              and vim.bo[buffer].buftype == ""
+              and not vim.tbl_contains(opts.inlay_hints.exclude, vim.bo[buffer].filetype)
           then
             vim.lsp.inlay_hint.enable(true, { bufnr = buffer })
           end
@@ -238,14 +238,14 @@ return {
 
     if type(opts.diagnostics.virtual_text) == "table" and opts.diagnostics.virtual_text.prefix == "icons" then
       opts.diagnostics.virtual_text.prefix = vim.fn.has("nvim-0.10.0") == 0 and "●"
-        or function(diagnostic)
-          local icons = LazyVim.config.icons.diagnostics
-          for d, icon in pairs(icons) do
-            if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
-              return icon
+          or function(diagnostic)
+            local icons = LazyVim.config.icons.diagnostics
+            for d, icon in pairs(icons) do
+              if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
+                return icon
+              end
             end
           end
-        end
     end
 
     vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
