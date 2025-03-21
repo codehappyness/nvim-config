@@ -133,7 +133,7 @@ return {
               --cargo = { allFeatures = true },
               --procMacro = { enable = true },
               diagnostics = {
-                enable = false,
+                enable = true,
               },
             },
           },
