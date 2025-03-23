@@ -25,7 +25,7 @@ return {
     -- Add nvim-ts-autotag
     "windwp/nvim-ts-autotag",
     -- "nvim-treesitter/nvim-treesitter-context",
-    "HiPhish/nvim-ts-rainbow2",
+    -- "HiPhish/nvim-ts-rainbow2",
     "nvim-treesitter/playground",
     "windwp/nvim-autopairs",
     "posva/vim-vue",
@@ -56,12 +56,17 @@ return {
     },
   },
   opts = {
-    highlight = { enable = true },
+    highlight = { enable = true, additional_vim_regex_highlighting = false },
     indent = { enable = true },
-  autotag = {
-    -- Setup autotag using treesitter config.
-    enable = true,
-  },
+    --rainbow = {
+    --  enable = true,
+    --  extended_mode = true, -- Bật highlight cho cả dấu `{}` lồng nhau
+    --  max_file_lines = nil, -- Không giới hạn số dòng
+    --},
+    autotag = {
+      -- Setup autotag using treesitter config.
+      enable = true,
+    },
     ensure_installed = {
       "bash",
       "php",
