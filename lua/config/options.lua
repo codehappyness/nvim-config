@@ -27,7 +27,15 @@ vim.g.lazyvim_picker = "snacks"
 --  hi MatchParen cterm=bold ctermbg=none guifg=#ffcc00 guibg=none
 --]]
 --
-vim.cmd [[
-  hi MatchParen guifg=white guibg=#ff5f5f gui=bold
-]]
+-- vim.cmd [[
+--   hi MatchParen guifg=white guibg=#ff5f5f gui=bold
+-- ]]
+
+
+vim.g.matchup_matchparen_offscreen = { method = "popup" }
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "html",
+  command = "let g:matchup_matchparen_enabled = 0",
+})
 
