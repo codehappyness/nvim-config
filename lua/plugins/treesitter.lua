@@ -26,6 +26,7 @@ return {
     "windwp/nvim-ts-autotag",
     -- "nvim-treesitter/nvim-treesitter-context",
     -- "HiPhish/nvim-ts-rainbow2",
+    "HiPhish/rainbow-delimiters.nvim",
     "nvim-treesitter/playground",
     "windwp/nvim-autopairs",
     "posva/vim-vue",
@@ -56,7 +57,7 @@ return {
     },
   },
   opts = {
-    highlight = { enable = true, additional_vim_regex_highlighting = false },
+    -- highlight = { enable = true, additional_vim_regex_highlighting = false },
     indent = { enable = true },
     --rainbow = {
     --  enable = true,
@@ -156,5 +157,25 @@ return {
       opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
     end
     require("nvim-treesitter.configs").setup(opts)
+    local rainbow = require("rainbow-delimiters")
+
+    vim.g.rainbow_delimiters = {
+      strategy = {
+        [''] = rainbow.strategy.global,
+      },
+      query = {
+        [''] = 'rainbow-delimiters',
+      },
+      highlight = {
+        "RainbowDelimiterRed",
+        "RainbowDelimiterYellow",
+        "RainbowDelimiterBlue",
+        "RainbowDelimiterOrange",
+        "RainbowDelimiterGreen",
+        "RainbowDelimiterViolet",
+        "RainbowDelimiterCyan",
+      },
+    }
+
   end,
 }

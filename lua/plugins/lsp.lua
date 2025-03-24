@@ -127,17 +127,17 @@ return {
         --},
         --vtsls = {},
         omnisharp = {},
-        rust_analyzer = {
-          settings = {
-            ["rust-analyzer"] = {
-              --cargo = { allFeatures = true },
-              --procMacro = { enable = true },
-              diagnostics = {
-                enable = true,
-              },
-            },
-          },
-        },
+        --  rust_analyzer = {
+        --    settings = {
+        --      ["rust-analyzer"] = {
+        --        --cargo = { allFeatures = true },
+        --        --procMacro = { enable = true },
+        --        diagnostics = {
+        --          enable = true,
+        --        },
+        --      },
+        --    },
+        --  },
         ts_ls = {
           root_dir = function(...)
             return require("lspconfig.util").root_pattern(".git")(...)
