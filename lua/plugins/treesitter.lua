@@ -16,7 +16,7 @@ return {
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
   keys = {
     { "<c-space>", desc = "Increment Selection" },
-    { "<bs>", desc = "Decrement Selection", mode = "x" },
+    { "<bs>",      desc = "Decrement Selection", mode = "x" },
   },
   opts_extend = { "ensure_installed" },
   ---@type TSConfig
@@ -26,10 +26,11 @@ return {
     "windwp/nvim-ts-autotag",
     -- "nvim-treesitter/nvim-treesitter-context",
     -- "HiPhish/nvim-ts-rainbow2",
-    "HiPhish/rainbow-delimiters.nvim",
+    -- "HiPhish/rainbow-delimiters.nvim",
     "nvim-treesitter/playground",
     "windwp/nvim-autopairs",
     "posva/vim-vue",
+    "andymass/vim-matchup",
   },
   -- https://github.com/nvim-treesitter/playground#query-linter
   query_linter = {
@@ -41,7 +42,7 @@ return {
   playground = {
     enable = true,
     disable = {},
-    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+    updatetime = 25,        -- Debounced time for highlighting nodes in the playground from source code
     persist_queries = true, -- Whether the query persists across vim sessions
     keybindings = {
       toggle_query_editor = "o",
@@ -67,6 +68,9 @@ return {
     autotag = {
       -- Setup autotag using treesitter config.
       enable = true,
+    },
+    matchup = {
+      enable = true, -- Bật match-up highlight
     },
     ensure_installed = {
       "bash",
@@ -157,25 +161,24 @@ return {
       opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
     end
     require("nvim-treesitter.configs").setup(opts)
-    local rainbow = require("rainbow-delimiters")
+    --local rainbow = require("rainbow-delimiters")
 
-    vim.g.rainbow_delimiters = {
-      strategy = {
-        [''] = rainbow.strategy.global,
-      },
-      query = {
-        [''] = 'rainbow-delimiters',
-      },
-      highlight = {
-        "RainbowDelimiterRed",
-        "RainbowDelimiterYellow",
-        "RainbowDelimiterBlue",
-        "RainbowDelimiterOrange",
-        "RainbowDelimiterGreen",
-        "RainbowDelimiterViolet",
-        "RainbowDelimiterCyan",
-      },
-    }
-
+    --vim.g.rainbow_delimiters = {
+    --  strategy = {
+    --    [""] = rainbow.strategy.global,
+    --  },
+    --  query = {
+    --    [""] = "rainbow-delimiters",
+    --  },
+    --  highlight = {
+    --    "RainbowDelimiterRed",
+    --    "RainbowDelimiterYellow",
+    --    "RainbowDelimiterBlue",
+    --    "RainbowDelimiterOrange",
+    --    "RainbowDelimiterGreen",
+    --    "RainbowDelimiterViolet",
+    --    "RainbowDelimiterCyan",
+    --  },
+    --}
   end,
 }
