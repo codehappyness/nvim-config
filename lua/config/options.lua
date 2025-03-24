@@ -26,3 +26,8 @@ vim.g.lazyvim_picker = "snacks"
 --  set showmatch
 --  hi MatchParen cterm=bold ctermbg=none guifg=#ffcc00 guibg=none
 --]]
+--
+vim.cmd [[
+  hi MatchParen guifg=white guibg=#ff5f5f gui=bold
+]]
+

@@ -16,7 +16,7 @@ return {
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
   keys = {
     { "<c-space>", desc = "Increment Selection" },
-    { "<bs>",      desc = "Decrement Selection", mode = "x" },
+    { "<bs>", desc = "Decrement Selection", mode = "x" },
   },
   opts_extend = { "ensure_installed" },
   ---@type TSConfig
@@ -42,7 +42,7 @@ return {
   playground = {
     enable = true,
     disable = {},
-    updatetime = 25,        -- Debounced time for highlighting nodes in the playground from source code
+    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
     persist_queries = true, -- Whether the query persists across vim sessions
     keybindings = {
       toggle_query_editor = "o",
@@ -180,5 +180,9 @@ return {
     --    "RainbowDelimiterCyan",
     --  },
     --}
+
+    vim.cmd([[
+  hi MatchParen guifg=black guibg=#ff5f5f  gui=bold
+]])
   end,
 }
