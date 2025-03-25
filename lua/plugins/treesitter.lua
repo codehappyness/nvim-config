@@ -1,7 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
-  "andymass/vim-matchup",
+  -- "andymass/vim-matchup",
+     "HiPhish/rainbow-delimiters.nvim",
   },
   version = false, -- last release is way too old and doesn't work on Windows
   build = ":TSUpdate",
@@ -27,9 +28,9 @@ return {
   opts = {
     highlight = { enable = true },
     indent = { enable = true },
-    matchup = {
-      enable = true, -- Bật match-up highlight
-    },
+    --matchup = {
+    --  enable = true, -- Bật match-up highlight
+    --},
     ensure_installed = {
       "bash",
       "php",
@@ -81,10 +82,67 @@ return {
   },
   ---@param opts TSConfig
   config = function(_, opts)
+
+    ---@class ParserInfo[]
+    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+    parser_config.blade = {
+      install_info = {
+        url = "https://github.com/EmranMR/tree-sitter-blade",
+        files = {
+          "src/parser.c",
+          -- 'src/scanner.cc',
+        },
+        branch = "main",
+        -- generate_requires_npm = true,
+        -- requires_generate_from_grammar = true,
+      },
+      filetype = "blade",
+    }
+    -- in my settings
+    -- Filetypes --
+    vim.filetype.add({
+      pattern = {
+        [".*%.blade%.php"] = "blade",
+      },
+    })
+
+    -- MDX
+    vim.filetype.add({
+      extension = {
+        mdx = "mdx",
+      },
+    })
+
+    vim.treesitter.language.register("markdown", "mdx")
+    require("nvim-treesitter.configs").setup(opts)
+
+    if type(opts.ensure_installed) == "table" then
+      vim.list_extend(opts.ensure_installed, { "markdown", "markdown_inline" })
+    end
     if type(opts.ensure_installed) == "table" then
       opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
     end
     require("nvim-treesitter.configs").setup(opts)
+
+    local rainbow = require("rainbow-delimiters")
+
+    vim.g.rainbow_delimiters = {
+      strategy = {
+        [""] = rainbow.strategy.global,
+      },
+      query = {
+        [""] = "rainbow-delimiters",
+      },
+      highlight = {
+        "RainbowDelimiterRed",
+        "RainbowDelimiterYellow",
+        "RainbowDelimiterBlue",
+        "RainbowDelimiterOrange",
+        "RainbowDelimiterGreen",
+        "RainbowDelimiterViolet",
+        "RainbowDelimiterCyan",
+      },
+    }
     vim.cmd([[
   hi MatchParen guifg=black guibg=#ff5f5f  gui=bold
 ]])
