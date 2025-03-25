@@ -1,8 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
-  -- "andymass/vim-matchup",
-     "HiPhish/rainbow-delimiters.nvim",
+    -- "andymass/vim-matchup",
+    "HiPhish/rainbow-delimiters.nvim",
   },
   version = false, -- last release is way too old and doesn't work on Windows
   build = ":TSUpdate",
@@ -28,6 +28,7 @@ return {
   opts = {
     highlight = { enable = true },
     indent = { enable = true },
+    context = { enable = false },
     --matchup = {
     --  enable = true, -- Bật match-up highlight
     --},
@@ -82,7 +83,6 @@ return {
   },
   ---@param opts TSConfig
   config = function(_, opts)
-
     ---@class ParserInfo[]
     local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
     parser_config.blade = {

@@ -36,7 +36,7 @@ return {
       -- provide the inlay hints.
       inlay_hints = {
         enabled = false,
-        exclude = { "vue", "java", "typescriptreact" }, -- filetypes for which you don't want to enable inlay hints
+        exclude = { "vue", "java", "typescriptreact", "rust" }, -- filetypes for which you don't want to enable inlay hints
       },
       -- Enable this to enable the builtin LSP code lenses on Neovim >= 0.10.0
       -- Be aware that you also will need to properly configure your LSP server to
