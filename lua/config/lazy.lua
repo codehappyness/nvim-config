@@ -10,7 +10,8 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     -- import LazyVim plugins
-    { "LazyVim/LazyVim",                                     import = "lazyvim.plugins" },
+    --{ "LazyVim/LazyVim",import = "lazyvim.plugins" },
+    { "LazyVim/LazyVim",                                     import = "lazyvim.plugins", opts = { colorscheme = "solarized-osaka" } },
     { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     --{ import = "lazyvim.plugins.extras.lang.typescript" },
