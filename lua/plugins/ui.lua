@@ -122,7 +122,6 @@ return {
 ╚██████╗╚██████╔╝██████╔╝███████╗██║  ██║██║  ██║██║     ██║        ██║   ██║ ╚████║███████╗███████║███████║
  ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝        ╚═╝   ╚═╝  ╚═══╝╚══════╝╚══════╝╚══════╝
       ]]
-
       --logo = string.rep("\n", 8) .. logo .. "\n\n"
       local header_lines = vim.split(logo, "\n", { trimempty = true })
       require("dashboard").setup({
@@ -135,4 +134,5 @@ return {
     end,
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
   },
+
 }
