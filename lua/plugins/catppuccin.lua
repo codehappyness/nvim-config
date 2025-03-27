@@ -14,7 +14,7 @@ return {
       gitsigns = true,
       headlines = true,
       illuminate = true,
-      indent_blankline = { enabled = false },
+      indent_blankline = { enabled = true },
       leap = true,
       lsp_trouble = true,
       mason = true,

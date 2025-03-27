@@ -21,6 +21,7 @@ vim.opt.foldenable = true
 -- In case you don't want to use `:LazyExtras`,
 -- then you need to set the option below.
 vim.g.lazyvim_picker = "snacks"
+vim.opt.list = false
 
 --vim.cmd [[
 --  set showmatch
@@ -38,4 +39,3 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "html",
   command = "let g:matchup_matchparen_enabled = 0",
 })
-
