@@ -1,4 +1,4 @@
-if true then return {} end
+--if true then return {} end
 return {
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
