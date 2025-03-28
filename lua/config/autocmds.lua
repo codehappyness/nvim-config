@@ -13,3 +13,4 @@
 --    vim.b.autoformat = false
 --  end,
 --})
+vim.g.autoformat = false
