@@ -1,4 +1,4 @@
---if true then return {} end
+if true then return {} end
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
   branch = "main",
