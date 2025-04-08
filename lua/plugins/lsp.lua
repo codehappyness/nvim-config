@@ -126,7 +126,7 @@ return {
         --  end,
         --},
         --vtsls = {},
-        omnisharp = {},
+        -- omnisharp = {},
         --  rust_analyzer = {
         --    settings = {
         --      ["rust-analyzer"] = {
