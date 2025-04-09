@@ -37,6 +37,7 @@ return {
       "php",
       "blade",
       "c",
+      "c_sharp",
       "diff",
       "html",
       "javascript",
