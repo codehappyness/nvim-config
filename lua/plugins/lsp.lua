@@ -100,22 +100,22 @@ return {
             return require("lspconfig.util").root_pattern(".git")(...)
           end,
         },
-         intelephense = {
-           filetypes = { "php", "blade" },
-           settings = {
-             intelephense = {
-               filetypes = { "php", "blade" },
-               files = {
-                 associations = { "*.php", "*.blade.php" }, -- Associating .blade.php files as well
-                 maxSize = 5000000,
-               },
-             },
-           },
-           on_attach = function(client, bufnr)
-             -- Optionally disable certain capabilities
-             -- client.server_capabilities.documentSymbolProvider = false -- Disable if you want to use another LSP for symbols
-           end,
-         },
+        intelephense = {
+          filetypes = { "php", "blade" },
+          settings = {
+            intelephense = {
+              filetypes = { "php", "blade" },
+              files = {
+                associations = { "*.php", "*.blade.php" }, -- Associating .blade.php files as well
+                maxSize = 5000000,
+              },
+            },
+          },
+          on_attach = function(client, bufnr)
+            -- Optionally disable certain capabilities
+            -- client.server_capabilities.documentSymbolProvider = false -- Disable if you want to use another LSP for symbols
+          end,
+        },
         phpactor = {
           filetypes = { "php" },
           root_patterns = { ".git", "pubspec.yaml" }, -- patterns to find the root of your flutter project
