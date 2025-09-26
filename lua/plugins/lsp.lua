@@ -125,6 +125,10 @@ return {
             -- vim.diagnostic.disable(bufnr);
           end,
         },
+        clangd = {
+          cmd = { "clangd", "--background-index", "--clang-tidy", "--clang-tidy-checks=-clang-diagnostic-unused-includes" },
+          -- dùng compile_commands.json để có include path chuẩn
+        },
         --vtsls = {},
         omnisharp = {},
         --  rust_analyzer = {
