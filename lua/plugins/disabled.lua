@@ -1,4 +1,4 @@
 return {
   -- disable trouble
-  { "echasnovski/mini.animate", enabled = false },
+  { "nvim-mini/mini.animate", enabled = false },
 }
