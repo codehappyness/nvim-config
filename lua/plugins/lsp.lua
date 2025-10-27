@@ -138,7 +138,7 @@ return {
           cmd = { "clangd", "--background-index", "--clang-tidy", "--clang-tidy-checks=-clang-diagnostic-unused-includes" },
           -- dùng compile_commands.json để có include path chuẩn
         },
-        --vtsls = {},
+        vtsls = {},
         omnisharp = {},
         --  rust_analyzer = {
         --    settings = {
