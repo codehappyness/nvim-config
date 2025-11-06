@@ -132,6 +132,7 @@ return {
           },
         },
 
+        --vue_ls = {},
         cssls = {},
         tailwindcss = {
           root_dir = function(...)
@@ -215,7 +216,6 @@ return {
             --},
           },
         },
-        vue_ls = {},
       },
       -- you can do any additional lsp server setup here
 
