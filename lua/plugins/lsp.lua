@@ -155,15 +155,15 @@ return {
             -- client.server_capabilities.documentSymbolProvider = false -- Disable if you want to use another LSP for symbols
           end,
         },
-        -- phpactor = {
-        --   filetypes = { "php" },
-        --   root_patterns = { ".git", "pubspec.yaml" }, -- patterns to find the root of your flutter project
-        --   on_attach = function(client, bufnr)
-        --     -- Optionally disable certain capabilities
-        --     -- client.server_capabilities.documentSymbolProvider = false -- Disable if you want to use another LSP for symbols
-        --     -- vim.diagnostic.disable(bufnr);
-        --   end,
-        -- },
+        phpactor = {
+          filetypes = { "php" },
+          root_patterns = { ".git", "pubspec.yaml" }, -- patterns to find the root of your flutter project
+          on_attach = function(client, bufnr)
+            -- Optionally disable certain capabilities
+            -- client.server_capabilities.documentSymbolProvider = false -- Disable if you want to use another LSP for symbols
+            -- vim.diagnostic.disable(bufnr);
+          end,
+        },
         clangd = {
           cmd = { "clangd", "--background-index", "--clang-tidy", "--clang-tidy-checks=-clang-diagnostic-unused-includes" },
           -- dùng compile_commands.json để có include path chuẩn
