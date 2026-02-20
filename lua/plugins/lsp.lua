@@ -135,9 +135,9 @@ return {
         --vue_ls = {},
         cssls = {},
         tailwindcss = {
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
-          end,
+          --root_dir = function(...)
+          --  return require("lspconfig.util").root_pattern(".git")(...)
+          --end,
         },
         intelephense = {
           filetypes = { "php", "blade" },
