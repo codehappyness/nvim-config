@@ -18,7 +18,7 @@ return {
     providers = {
       gemini = {
         endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
-        model = "gemini-2.5-pro",
+        model = "gemini-3.1-pro-preview",
         timeout = 30000, -- Timeout in milliseconds
         context_window = 1048576,
         use_ReAct_prompt = false,
