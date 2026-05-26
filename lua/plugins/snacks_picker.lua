@@ -6,7 +6,7 @@ return {
   opts = {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
-    explorer = { enabled = true, follow_file = false, focus = 'list', auto_close = true },
+    explorer = { enabled = true, follow_file = false, focus = "list", auto_close = true },
     indent = { enabled = true },
     input = { enabled = true },
     notifier = {
@@ -73,7 +73,7 @@ return {
     {
       "<leader>fb",
       function()
-        Snacks.picker.buffers()
+        Snacks.picker.buffers({ focus = "list" })
       end,
       desc = "Buffers",
     },
