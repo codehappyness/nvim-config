@@ -10,7 +10,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     -- import LazyVim plugins
-    { "LazyVim/LazyVim",                                     import = "lazyvim.plugins" },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     --{ "LazyVim/LazyVim",                                     import = "lazyvim.plugins", opts = { colorscheme = "solarized-osaka" } },
     { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
@@ -22,6 +22,9 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
     { import = "lazyvim.plugins.extras.coding.luasnip" },
+    -- Thêm 2 dòng này để bật Java và trình Debug
+    -- { import = "lazyvim.plugins.extras.lang.java" },
+    -- { import = "lazyvim.plugins.extras.dap.core" },
     -- import/override with your plugins
     { import = "plugins" },
     -- import any extras modules here

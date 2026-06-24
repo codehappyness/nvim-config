@@ -6,13 +6,13 @@ vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 vim.opt.clipboard = "unnamedplus"
 -- Config for fold
-vim.opt.foldmethod = "manual"
+-- vim.opt.foldmethod = "manual"
 
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = "nc"
 
-vim.opt.foldmethod = "marker"
-vim.opt.foldmarker = "#region,#endregion"
+-- vim.opt.foldmethod = "marker"
+-- vim.opt.foldmarker = "#region,#endregion"
 
 
 vim.opt.foldmethod = "expr"
