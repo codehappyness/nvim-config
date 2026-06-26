@@ -142,6 +142,9 @@ return {
 cssls = {},
       tailwindcss = {
         root_dir = function(fname)
+          if type(fname) == "number" then
+            fname = vim.api.nvim_buf_get_name(fname)
+          end
           local util = require("lspconfig.util")
           -- Buộc LSP chỉ kích hoạt và lấy gốc từ nơi chứa các file này
           return util.root_pattern(
@@ -202,8 +205,11 @@ cssls = {},
         --    },
         --  },
         ts_ls = {
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
+          root_dir = function(fname)
+            if type(fname) == "number" then
+              fname = vim.api.nvim_buf_get_name(fname)
+            end
+            return require("lspconfig.util").root_pattern(".git")(fname)
           end,
           single_file_support = false,
           init_options = {

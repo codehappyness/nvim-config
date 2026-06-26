@@ -23,8 +23,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
     { import = "lazyvim.plugins.extras.coding.luasnip" },
     -- Thêm 2 dòng này để bật Java và trình Debug
-    -- { import = "lazyvim.plugins.extras.lang.java" },
-    -- { import = "lazyvim.plugins.extras.dap.core" },
+    { import = "lazyvim.plugins.extras.lang.java" },
+    { import = "lazyvim.plugins.extras.dap.core" },
     -- import/override with your plugins
     { import = "plugins" },
     -- import any extras modules here
@@ -35,6 +35,10 @@ require("lazy").setup({
     -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
     lazy = false,
     version = "*", -- try installing the latest stable version for plugins that support semver
+  },
+  rocks = {
+    enabled = false,
+    hererocks = false,
   },
   install = { colorscheme = { "tokyonight", "habamax" } },
   -- install = { colorscheme = { "tokyonight" } },

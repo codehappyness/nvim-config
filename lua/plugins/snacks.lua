@@ -1,6 +1,13 @@
 return {
   "snacks.nvim",
   opts = {
+styles = {
+          lazygit = {
+            width = 0,  -- 0 có nghĩa là mở rộng tối đa 100% chiều rộng
+            height = 0, -- 0 có nghĩa là mở rộng tối đa 100% chiều cao
+            -- Nếu muốn chừa lại một chút viền nhỏ, bạn có thể để 0.95 hoặc 0.98
+          }
+        },
     dashboard = {
       preset = {
         pick = function(cmd, opts)
