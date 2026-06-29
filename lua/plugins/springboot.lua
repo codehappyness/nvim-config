@@ -20,6 +20,7 @@ return {
   -- Plugin springboot-nvim để chạy project Spring Boot nhanh và generate code
   {
     "elmcgill/springboot-nvim",
+    ft = { "java", "xml" },
     dependencies = {
       "neovim/nvim-lspconfig",
       "mfussenegger/nvim-jdtls"

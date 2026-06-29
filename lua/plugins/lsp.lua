@@ -1,6 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   event = "LazyFile",
+  cmd = { "LspInfo", "LspStart", "LspStop", "LspRestart" },
   dependencies = {
     "mason.nvim",
     { "mason-org/mason-lspconfig.nvim", config = function() end },
@@ -141,21 +142,33 @@ return {
         -- },
         cssls = {},
         tailwindcss = {
-          root_dir = function(fname)
-            if type(fname) == "number" then
-              fname = vim.api.nvim_buf_get_name(fname)
-            end
-            local util = require("lspconfig.util")
-            -- Buộc LSP chỉ kích hoạt và lấy gốc từ nơi chứa các file này
-            return util.root_pattern(
-              "tailwind.config.js",
-              "tailwind.config.cjs",
-              "tailwind.config.ts",
-              "artisan", -- Điểm neo rất tốt cho cấu trúc project Laravel
-              "package.json", -- Điểm neo cho project Vue/Node.js
-              ".git"
-            )(fname) or util.path.dirname(fname)
-          end,
+          filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "blade" },
+          root_markers = {
+            "tailwind.config.js",
+            "tailwind.config.cjs",
+            "tailwind.config.ts",
+            "vite.config.ts",
+            "artisan",
+            "package.json",
+            ".git"
+          },
+          settings = {
+            tailwindCSS = {
+              includeLanguages = {
+                typescript = "javascript",
+                typescriptreact = "javascriptreact",
+                ["vue-html"] = "html",
+                ["blade"] = "html",
+              },
+              experimental = {
+                classRegex = {
+                  { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                  { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+                  { "cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" }
+                },
+              },
+            },
+          },
         },
         intelephense = {
           filetypes = { "php", "blade" },
@@ -355,9 +368,7 @@ return {
         mason_exclude[#mason_exclude + 1] = server
       else
         vim.lsp.config(server, sopts) -- configure the server
-        if not use_mason then
-          vim.lsp.enable(server)
-        end
+        vim.lsp.enable(server)
       end
       return use_mason
     end
