@@ -139,24 +139,24 @@ return {
         --   --  return require("lspconfig.util").root_pattern(".git")(...)
         --   --end,
         -- },
-cssls = {},
-      tailwindcss = {
-        root_dir = function(fname)
-          if type(fname) == "number" then
-            fname = vim.api.nvim_buf_get_name(fname)
-          end
-          local util = require("lspconfig.util")
-          -- Buộc LSP chỉ kích hoạt và lấy gốc từ nơi chứa các file này
-          return util.root_pattern(
-            "tailwind.config.js",
-            "tailwind.config.cjs",
-            "tailwind.config.ts",
-            "artisan",      -- Điểm neo rất tốt cho cấu trúc project Laravel
-            "package.json", -- Điểm neo cho project Vue/Node.js
-            ".git"
-          )(fname) or util.path.dirname(fname)
-        end,
-      },
+        cssls = {},
+        tailwindcss = {
+          root_dir = function(fname)
+            if type(fname) == "number" then
+              fname = vim.api.nvim_buf_get_name(fname)
+            end
+            local util = require("lspconfig.util")
+            -- Buộc LSP chỉ kích hoạt và lấy gốc từ nơi chứa các file này
+            return util.root_pattern(
+              "tailwind.config.js",
+              "tailwind.config.cjs",
+              "tailwind.config.ts",
+              "artisan", -- Điểm neo rất tốt cho cấu trúc project Laravel
+              "package.json", -- Điểm neo cho project Vue/Node.js
+              ".git"
+            )(fname) or util.path.dirname(fname)
+          end,
+        },
         intelephense = {
           filetypes = { "php", "blade" },
           settings = {
